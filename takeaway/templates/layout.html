@@ -9,14 +9,16 @@
             Django App
         {% endblock %}
     </title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
     <nav>
         <a href="/">HOME</a>
-        <a href="/about">ABOUT</a>
-        <a href="/users">USER</a>
+        <a href="/about/">ABOUT</a>
+        <a href="/users/register/">REGISTER</a>
+        <a href="/users/login/">LOGIN</a>
     </nav>
     <main>
         {% block content %}
