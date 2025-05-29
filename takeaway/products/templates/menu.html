@@ -8,13 +8,15 @@
     <section>
     <h1>Menu</h1>
     
+    <div class="container">
     {% for product in products %}
-        <article>
+        <div class="card">
             <h2>{{ product.name }}<h2>
             <p>{{ product.price }}</p>
             <p>{{ product.description }}</p>
-        </article>
+        </div>
     {% endfor %}
+    </div>
 
 </section>
 {% endblock %}
