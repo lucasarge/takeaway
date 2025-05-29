@@ -21,6 +21,15 @@ nav {
 
 .container {
     display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+.quicksearch, .cart {
+    background-color: rgb(255, 255, 255);
+}
+
+.menu {
+    display: grid;
     column-gap: 50px;
     row-gap: 50px;
     grid-template-columns: repeat(4, 1fr);
