@@ -12,9 +12,11 @@
         <div class="menu">
             {% for product in products %}
                 <div class="card">
-                    <h2>{{ product.name }}</h2>
-                    <p>{{ product.price }}</p>
-                    <p>{{ product.description }}</p>
+                    <a href="{% url 'products:page' slug=product.slug %}">
+                        <h2>{{ product.name }}</h2>
+                        <p>{{ product.price }}</p>
+                        <p>{{ product.description }}</p>
+                    </a>
                 </div>
             {% endfor %}
         </div>
