@@ -7,21 +7,21 @@
 {% block content %}
     <div class="container">
         <div class="quicksearch">
-            <h2>Labels</h2>
+            Labels
         </div>
         <div class="menu">
             {% for product in products %}
+            <a href="{% url 'products:page' slug=product.slug %}">
                 <div class="card">
-                    <a href="{% url 'products:page' slug=product.slug %}">
-                        <h2>{{ product.name }}</h2>
-                        <p>{{ product.price }}</p>
-                        <p>{{ product.description }}</p>
-                    </a>
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <h2>{{ product.name }}</h2>
+                    <p>${{ product.price }}</p>
                 </div>
+            </a>
             {% endfor %}
         </div>
         <div class="cart">
-            <h2>Cart</h2>
+            Cart
         </div>
     </div>
 {% endblock %}
