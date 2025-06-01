@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="expand-grid">
-        <div>
+        <div class='expand-image-container'>
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
         </div>
         <div>
@@ -14,6 +14,9 @@
             <hr>
             <h3>${{ product.price }}</h3>
             <p>{{ product.description }}</p>
+            <div class="ingredients">
+                Ingredients:
+            </div>
         </div>
         <div class=cart>
             Cart
