@@ -5,10 +5,16 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Register</h1>
-    <form class="register" action="/users/register" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button>Submit</button>
-    </form>
+    <div class="form">
+        <div></div>
+        <div class="register-div">
+            <h1>Register</h1>
+            <form class="register" action="/users/register" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button class="register-btn">Submit</button>
+            </form>
+        </div>
+        <div></div>
+    </div>
 {% endblock %}

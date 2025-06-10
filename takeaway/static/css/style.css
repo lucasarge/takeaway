@@ -169,6 +169,57 @@ h1 {
 a:hover {
     opacity: .85;
 }
+
+.form {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.register-div {
+    vertical-align: middle;
+    width: 100%;
+    background-color: white;
+    padding: 5%;
+    border-radius: 5%;
+    margin: 30% auto;
+    font-size: 2rem;
+    
+}
+
+.register {
+    font-size: 1rem;
+    padding: 5%;
+}
+
+.errorlist li::marker {
+    content: '! ';
+    color: red;
+}
+
+.errorlist {
+    color: red;
+    margin-left: 2rem;
+}
+
+.helptext {
+    font-size: 1rem;
+    margin-left: 1rem;
+    color: gray
+}
+
+.helptext ul {
+    list-style-type: none;
+}
+
+.register input {
+    padding: 1%;
+    margin: 2%;
+}
+
+.register-btn {
+    width: 100%;
+    margin-top: 10%;
+}
+
 /*
 red: rgb(184,37,8)
 bg: rgb(252,246,245)
