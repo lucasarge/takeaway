@@ -32,6 +32,11 @@ nav {
     height: 100%;
 }
 
+.label {
+    font-size: xx-large;
+    line-height: 10px;
+}
+
 .expand-grid {
     display: grid;
     grid-template-columns: 2fr 3fr 1fr;

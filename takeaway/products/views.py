@@ -10,5 +10,4 @@ def products_menu(request):
 
 def product_page(request, slug):
     product = Product.objects.get(slug=slug)
-    all = Product.objects.all()
-    return render(request, 'products/product.html', {'product': product, 'all': all})
+    return render(request, 'products/product.html', {'product': product})
