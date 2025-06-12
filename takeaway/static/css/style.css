@@ -174,20 +174,28 @@ a:hover {
     grid-template-columns: repeat(3, 1fr);
 }
 
-.register-div {
+.register-div, .login-div {
     vertical-align: middle;
-    width: 100%;
+    width: 500px;
     background-color: white;
     padding: 5%;
-    border-radius: 5%;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    box-shadow: 0 0 10px gray;
+}
+
+.login-div{
+    margin: 50% auto;
+}
+
+.register-div {
     margin: 30% auto;
-    font-size: 2rem;
-    
 }
 
 .register {
     font-size: 1rem;
     padding: 5%;
+    width: 100%;
 }
 
 .errorlist li::marker {
@@ -213,12 +221,17 @@ a:hover {
 .register input {
     padding: 1%;
     margin: 2%;
+    border-radius: 5px;
 }
 
 .register-btn {
     width: 100%;
     margin-top: 10%;
+    margin-bottom: -2%;
+    padding: 2%;
+    border-radius: 20px;
 }
+
 
 /*
 red: rgb(184,37,8)
