@@ -15,12 +15,41 @@
 </head>
 <body>
     <nav>
-        <a href="{% url 'products:menu' %}">MENU</a>
+
+        <img class="logo" src="/media/logo.png" alt="logo">
+        <div class="searchbar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="icons">
+            <div></div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="/media/help-icons8.png" alt="">
+                </button>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="/media/cart-icons8.png" alt="">
+                </button>
+
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="/media/user-icons8.png" alt="">
+                </button>
+                <div class="dropdown-content">
+                    <a href="/users/register">Register</a>
+                    <a href="/users/login">Login</a>
+                    <a href="/users/register">Settings</a>
+                </div>
+            </div>
+        </div>
+        <!-- <a href="{% url 'products:menu' %}">MENU</a>
         <a href="/">HOME</a>
         <a href="/about">ABOUT</a>
         <a href="/users/register">REGISTER</a>
         <a href="/users/login">LOGIN</a>
-        <a href="/admin">ADMIN</a>
+        <a href="/admin">ADMIN</a> -->
     </nav>
     <main>
         {% block content %}

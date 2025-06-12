@@ -32,7 +32,7 @@
                     <div class="card">
                         <a href="{% url 'products:page' slug=product.slug %}">
                             <div class="image-container">
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                <img class="product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </div>
                         </a>
                         <div class="small-product-info">
