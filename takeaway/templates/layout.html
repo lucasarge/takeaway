@@ -15,41 +15,50 @@
 </head>
 <body>
     <nav>
+        <a class="logo-link" href="/products">
+            <img class="logo" src="/media/logo.png" alt="logo">
+        </a>
 
-        <img class="logo" src="/media/logo.png" alt="logo">
         <div class="searchbar">
             <input type="text" placeholder="Search...">
         </div>
-        <div class="icons">
-            <div></div>
-            <div class="dropdown">
-                <button class="dropbtn">
-                    <img src="/media/help-icons8.png" alt="">
-                </button>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">
-                    <img src="/media/cart-icons8.png" alt="">
-                </button>
 
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">
-                    <img src="/media/user-icons8.png" alt="">
-                </button>
-                <div class="dropdown-content">
-                    <a href="/users/register">Register</a>
-                    <a href="/users/login">Login</a>
-                    <a href="/users/register">Settings</a>
+        <div class="icons">
+            
+            <div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <img src="/media/help-icons8.png" alt="">
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/">Home</a>
+                        <a href="/about">About Us</a>
+                    </div>
                 </div>
             </div>
+
+            <div>
+                <div class="dropdown">
+                    <img src="/media/cart-icons8.png" alt="">
+                </div>
+            </div>
+
+            <div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <img src="/media/user-icons8.png" alt="">
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/users/register">Register</a>
+                        <a href="/users/login">Login</a>
+                        <a href="/admin">Settings</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div> 
         </div>
-        <!-- <a href="{% url 'products:menu' %}">MENU</a>
-        <a href="/">HOME</a>
-        <a href="/about">ABOUT</a>
-        <a href="/users/register">REGISTER</a>
-        <a href="/users/login">LOGIN</a>
-        <a href="/admin">ADMIN</a> -->
     </nav>
     <main>
         {% block content %}

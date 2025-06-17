@@ -100,7 +100,7 @@ input {
     height: 50px;
     padding: 1%;
     border-radius: 50px;
-    margin-top: 20px;
+    margin-top: 25px;
     border: 1px solid #ccc;
 }
 
@@ -257,31 +257,33 @@ a:hover {
 }
 
 .dropdown {
-    position: relative;
     display: inline-block;
-  }
-  
-  .dropdown-content {
+    position: relative;
+    float: right;
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
+    right: 0;
     background-color: #f1f1f1;
-    min-width: 160px;
+    min-width: 10px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-  }
-  
-  .dropdown-content a {
+}
+
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     font-size: 10px;
-  }
-  
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
 
 /*
 red: rgb(184,37,8)
