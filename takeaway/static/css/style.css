@@ -198,11 +198,11 @@ a:hover {
 }
 
 .login-div{
-    margin: 50% auto;
+    margin: 40% auto;
 }
 
 .register-div {
-    margin: 30% auto;
+    margin: 20% auto;
 }
 
 .register {
@@ -256,7 +256,7 @@ a:hover {
     grid-template-columns: 3fr 1fr 1fr 1fr;
 }
 
-.dropdown {
+.icon {
     display: inline-block;
     position: relative;
     float: right;
