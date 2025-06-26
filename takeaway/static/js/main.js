@@ -3,10 +3,8 @@ console.log('This is JS from your About')
 var closeBtn = document.getElementsByClassName("closeBtn")[0];
 var openBtn = document.getElementsByClassName("openBtn")[0];
 var modal = document.getElementById("quicksearch-modal");
-var cartBtn = document.getElementById("cartBtn")[0];
+var cartBtn = document.getElementById("cartBtn");
 var cartModal = document.getElementById("cart-modal");
-
-console.log("test")
 
 openBtn.onclick = function() {
     modal.style.display = "block";
