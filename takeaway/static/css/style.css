@@ -138,10 +138,17 @@ input {
 }
 
 .quicksearch, .cart {
+    display: none;
     background-color: rgb(255, 255, 255);
     z-index: 4;
     box-shadow: 2px 0 5px gray, -2px 0 5px gray;
     padding: 5%;
+}
+
+.cart-container {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: white;
 }
 
 .add-button {
@@ -173,6 +180,7 @@ input {
 }
 
 .openBtn {
+    display: none;
     z-index: -1 ;
     padding: 15px;
     padding-left: 30px;
