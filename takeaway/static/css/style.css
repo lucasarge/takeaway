@@ -110,6 +110,14 @@ input {
     border: 1px solid #ccc;
 }
 
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+}
+.expanded-image {
+    width: 100%;
+}
 
 .image-container {
     background-image: linear-gradient(rgba(0,0,0,0),rgb(220, 220, 220));
@@ -145,7 +153,7 @@ input {
 }
 
 .add-button:hover {
-    background-color: rgb(40, 220, 2);
+    background-color: rgb(25, 151, 0);
     
 }
 

@@ -5,6 +5,23 @@
 {% endblock %}
 
 {% block content %}
+    <section>
+        <div class="container">
+            <div></div>
+            <div class=two-column>
+                <div>
+                    <div class='expanded-image'>
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </div>
+                </div>
+                <div>
+                    <h2>{{ product.name }}</h2>
+                </div>
+            </div>
+            <div></div>
+        </div>
+    </section>
+    {% comment %}
     <div class="expand-grid">
         <div class='expand-image-container'>
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -22,5 +39,5 @@
             Cart
         </div>
     </div>
-    
+    {% endcomment %}
 {% endblock %}
