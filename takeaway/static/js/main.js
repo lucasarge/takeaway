@@ -3,9 +3,10 @@ console.log('This is JS from your About')
 var closeBtn = document.getElementsByClassName("closeBtn")[0];
 var openBtn = document.getElementsByClassName("openBtn")[0];
 var modal = document.getElementById("quicksearch-modal");
-var cartBtn = document.getElementById("cartBtn");
 var cartModal = document.getElementById("cart-modal");
-let addBtns = document.querySelectorAll(".card button")
+let addBtns = document.querySelectorAll(".card button");
+let plusBtns = document.querySelectorAll(".plus-button");
+let minusBtns = document.querySelectorAll(".minus-button");
 
 function getCookie(name) {
     let cookieValue = null;
@@ -24,27 +25,62 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 
-openBtn.onclick = function() {
+if (openBtn != null) {
+    openBtn.onclick = function() {
     modal.style.display = "block";
     openBtn.style.display = "none";
-}
-
-closeBtn.onclick = function() {
-    modal.style.display = "none";
-    openBtn.style.display = "inline-block";
-}
-
-cartBtn.onclick = function() {
-    if (cartModal.style.display == "block") {
-        cartModal.style.display = "none"
-    } else {
-        cartModal.style.display = "block"
     }
 }
+
+if (closeBtn != null) {
+    closeBtn.onclick = function() {
+    modal.style.display = "none";
+    openBtn.style.display = "inline-block";
+    }
+}
+
+
+// cartBtn.onclick = function() {
+//     if (cartModal.style.display == "block") {
+//         cartModal.style.display = "none"
+//     } else {
+//         cartModal.style.display = "block"
+//     }
+// }
 
 addBtns.forEach(addBtn=>{
     addBtn.addEventListener("click", addToCart)
 })
+
+plusBtns.forEach(plusBtn=>{
+    plusBtn.addEventListener("click", addToCart)
+})
+
+minusBtns.forEach(minusBtn=>{
+    minusBtn.addEventListener("click", removeFromCart)
+})
+
+function removeFromCart(e){
+    let product_id = e.target.value
+    let url = "/products/remove_from_cart"
+    let data = {id:product_id}
+    
+    fetch(url, {
+        method: "POST",
+        headers: {"Content-Type":"application/json", 'X-CSRFToken': csrftoken},
+        body: JSON.stringify(data)    
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data)
+    })
+
+    .catch(error=>{
+        console.log(error)
+    })
+    
+    console.log(product_id)
+}
 
 function addToCart(e){
     let product_id = e.target.value
