@@ -48,9 +48,14 @@ def remove_from_cart(request):
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
         cartitem, created = CartItem.objects.get_or_create(cart=cart, product=product)
-        if cartitem.quantity != 0:
-            cartitem.quantity -= 1
-        cartitem.save()
-
-        num_of_items = sum(item.quantity for item in cart.cartitems.all())
+        
+        if cartitem:
+            if cartitem.quantity > 1:
+                cartitem.quantity -= 1
+                cartitem.save()
+            else:
+                cartitem.delete()
+            num_of_items = sum(item.quantity for item in cart.cartitems.all())
+        else:
+            num_of_items = 0
     return JsonResponse(num_of_items, safe=False)

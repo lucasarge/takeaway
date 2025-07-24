@@ -60,6 +60,12 @@ minusBtns.forEach(minusBtn=>{
     minusBtn.addEventListener("click", removeFromCart)
 })
 
+function updatePage() {
+    setTimeout(function() {
+        location.reload()
+    }, 100);
+}
+
 function removeFromCart(e){
     let product_id = e.target.value
     let url = "/products/remove_from_cart"
@@ -80,6 +86,7 @@ function removeFromCart(e){
     })
     
     console.log(product_id)
+    updatePage()
 }
 
 function addToCart(e){
@@ -100,6 +107,6 @@ function addToCart(e){
     .catch(error=>{
         console.log(error)
     })
-    
     console.log(product_id)
+    updatePage()
 }
