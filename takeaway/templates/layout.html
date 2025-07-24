@@ -9,56 +9,14 @@
             Django App
         {% endblock %}
     </title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
     <nav>
-        <a class="logo-link" href="/products">
-            <img class="logo" src="/media/logo.png" alt="logo">
-        </a>
-
-        <div class="searchbar">
-            <input type="text" placeholder="Search...">
-        </div>
-
-        <div class="icons">
-            
-            <div>
-                <div class="icon">
-                    <button class="dropbtn">
-                        <img src="/media/help-icons8.png" alt="">
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="/">Home</a>
-                        <a href="/about">About Us</a>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div class="icon">
-                    <a href="/products/cart">
-                        <img src="/media/cart-icons8.png" alt="">
-                    </a>
-                </div>
-            </div>
-
-            <div>
-                <div class="icon">
-                    <button class="dropbtn">
-                        <img src="/media/user-icons8.png" alt="">
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="/users/register">Register</a>
-                        <a href="/users/login">Login</a>
-                        <a href="/admin">Settings</a>
-                    </div>
-                </div>
-            </div>
-            <div></div> 
-        </div>
+        <a href="/">HOME</a>
+        <a href="/about">ABOUT</a>
+        <a href="/posts">USER</a>
     </nav>
     <main>
         {% block content %}

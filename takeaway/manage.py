@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-#"Set-ExecutionPolicy Unrestricted -Scope Process ; .venv/Scripts/Activate ; cd takeaway ; py manage.py runserver"
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
