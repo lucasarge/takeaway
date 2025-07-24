@@ -53,7 +53,7 @@ function addToCart(e){
     
     fetch(url, {
         method: "POST",
-        headers: {"Content-Type":"application/json", 'X-CSRFToken':csrftoken},
+        headers: {"Content-Type":"application/json", 'X-CSRFToken': csrftoken},
         body: JSON.stringify(data)    
     })
     .then(res=>res.json())
