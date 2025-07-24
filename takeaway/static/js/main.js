@@ -34,13 +34,13 @@ closeBtn.onclick = function() {
     openBtn.style.display = "inline-block";
 }
 
-cartBtn.onclick = function() {
-    if (cartModal.style.display == "block") {
-        cartModal.style.display = "none"
-    } else {
-        cartModal.style.display = "block"
-    }
-}
+// cartBtn.onclick = function() {
+//     if (cartModal.style.display == "block") {
+//         cartModal.style.display = "none"
+//     } else {
+//         cartModal.style.display = "block"
+//     }
+// }
 
 addBtns.forEach(addBtn=>{
     addBtn.addEventListener("click", addToCart)

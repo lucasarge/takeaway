@@ -22,9 +22,8 @@ def cart(request):
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
         cartitems = cart.cartitems.all()
-    
-    context = {"cart":cart, "items":cartitems}
-    return render(request, "cart.html", context)
+
+    return render(request, "products/cart.html", {"cart":cart, "items":cartitems})
 
 
 def add_to_cart(request):

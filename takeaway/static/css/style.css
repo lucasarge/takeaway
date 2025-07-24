@@ -144,6 +144,39 @@ input {
     padding: 5%;
 }
 
+.cart {
+    display: none;
+}
+
+.shopping-cart {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+.shopping-cart a {
+    text-decoration: underline;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-bottom: 5%;
+}
+
+.item-container {
+    background-color: white;
+    column-gap: 10%;
+    width: 1000px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 5%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: 1.5rem;
+    box-shadow: 0 0 10px gray;
+}
+
 .add-button {
     margin: 5%;
     color: white;
