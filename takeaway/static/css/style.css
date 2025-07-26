@@ -43,6 +43,7 @@ nav {
     padding: 5% 5% 5% 0;
     font-size: x-large;
     font-weight: 100;
+    color:#797979;
 }
 
 .expand-grid {
@@ -156,6 +157,7 @@ input {
     z-index: 4;
     box-shadow: 2px 0 5px gray, -2px 0 5px gray;
     padding: 5%;
+    height: 900px;
 }
 
 .cart {

@@ -17,7 +17,9 @@
                     <hr>
                     <div class="label">
                         {% for label in labels %}
-                            <h6>- {{ label.name }}</p>
+                            <h6><a href="/products/?search={{ label.name }}">
+                                - {{ label.name }}
+                            </a></h6>
                         {% endfor %}
                     </div>
                 </div>
@@ -25,7 +27,8 @@
             <div>
                 {% if search_query != "" %}
                 <h3 class="results">
-                    Our results from your search: <span>"{{ search_query }}"</span>
+                    &nbsp;Our results from your search: 
+                    <span>"{{ search_query }}"</span>
                 </h3>
                 {% endif %}
                 {% if products|length == 0 %}

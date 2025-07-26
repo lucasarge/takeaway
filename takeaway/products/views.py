@@ -3,16 +3,21 @@ from .models import Product, Cart, CartItem, Label, LabelProduct
 from django.http import HttpResponse, JsonResponse
 import json
 from django.contrib import messages
+from django.db.models import Q
 
 
 # Create your views here.
 def products_menu(request):
     search_query=request.GET.get('search','')
+    labels = Label.objects.all()
     if search_query=='':
         products = Product.objects.all()
     else:
-        products = Product.objects.filter(name__icontains = search_query)
-    labels = Label.objects.all()
+        products = Product.objects.filter(
+            Q(name__icontains = search_query) |
+            Q(labelproduct__label__name__icontains = search_query)
+            ).distinct()
+    
     return render(request, 'products/menu.html', {'products': products, 
                                                   'labels':labels,
                                                   'search_query':search_query})
