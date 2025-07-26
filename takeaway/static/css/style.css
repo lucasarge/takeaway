@@ -50,7 +50,6 @@ nav {
 
 .quicksearch {
     display: none;
-    height: 100%;
 }
 
 .product-label {
@@ -76,6 +75,14 @@ nav {
     font-size: x-large;
     font-weight: 100;
     color:#797979;
+}
+
+.cart-item-quantity {
+    position:absolute;
+    top: 46%;
+    left: 57%;
+    transform: translate(-50%,-50%);
+    color:rgb(184,37,8);
 }
 
 .product-pm {
@@ -233,7 +240,6 @@ input {
     z-index: 4;
     box-shadow: 2px 0 5px gray, -2px 0 5px gray;
     padding: 5%;
-    height: 900px;
 }
 
 .cart {

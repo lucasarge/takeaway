@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 import uuid
 
 # Create your models here.
+
 class Label(models.Model):
     name = models.CharField(max_length=15)
 
