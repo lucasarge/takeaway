@@ -4,9 +4,9 @@ var closeBtn = document.getElementsByClassName("closeBtn")[0];
 var openBtn = document.getElementsByClassName("openBtn")[0];
 var modal = document.getElementById("quicksearch-modal");
 var cartModal = document.getElementById("cart-modal");
-let addBtns = document.querySelectorAll(".card button");
-let plusBtns = document.querySelectorAll(".plus-button");
-let minusBtns = document.querySelectorAll(".minus-button");
+let addBtns = document.querySelectorAll("#add");
+let plusBtns = document.querySelectorAll("#plus");
+let minusBtns = document.querySelectorAll("#minus");
 
 function getCookie(name) {
     let cookieValue = null;

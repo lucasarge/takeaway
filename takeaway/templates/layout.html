@@ -21,7 +21,13 @@
 
         <div class="searchbar">
             <form method="GET" action="{% url 'products:menu' %}">
-                <input name="search" type="text" placeholder="Search..." value="{{ request.GET.search|default_if_none:'' }}">
+                <input 
+                name="search" 
+                type="text" 
+                placeholder="Search..." 
+                value="{{ request.GET.search|default_if_none:'' }}"
+                class="searchbar-text"
+                >
             </form>
         </div>
 

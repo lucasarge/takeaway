@@ -25,8 +25,12 @@ def products_menu(request):
 def product_page(request, slug):
     product = Product.objects.get(slug=slug)
     labels = product.labels.all()
+    cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+    cartitem = cart.cartitems.filter(product=product).first()
     return render(request, 'products/product.html', {'product': product, 
-                                                     'labels':labels,})
+                                                     'labels':labels,
+                                                     'item':cartitem})
+    
 
 def cart(request):
 
