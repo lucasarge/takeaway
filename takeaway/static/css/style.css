@@ -40,8 +40,9 @@ nav {
 }
 
 .label {
-    font-size: xx-large;
-    line-height: 10px;
+    padding: 5% 5% 5% 0;
+    font-size: x-large;
+    font-weight: 100;
 }
 
 .expand-grid {
@@ -56,6 +57,14 @@ nav {
     grid-template-columns: 2fr 1fr;
 }
 
+.underlined {
+    text-decoration: underline;
+}
+
+.results {
+    padding: 1% 0;
+}
+
 .menu {
     display: grid;
     column-gap: 30px;
@@ -63,6 +72,11 @@ nav {
     grid-template-columns: repeat(4, 1fr);
     padding: 25px;
     z-index: 1;
+
+}
+
+.menu-container {
+    display: grid;
 }
 
 img {
@@ -352,6 +366,12 @@ a:hover {
 .dropbtn {
     background-color: transparent;
     border: none;
+}
+
+span {
+    font-weight: 300;
+    font-style: italic;
+    color: #797979;
 }
 
 .icons {

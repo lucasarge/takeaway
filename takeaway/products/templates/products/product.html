@@ -16,6 +16,9 @@
                 </div>
                 <div>
                     <h2>{{ product.name }}</h2>
+                    {% for label in labels %}
+                        <h3>{{ label.name }}</h3>
+                    {% endfor %}
                 </div>
             </div>
             <div></div>

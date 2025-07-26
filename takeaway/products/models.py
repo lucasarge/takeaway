@@ -3,15 +3,29 @@ from django.contrib.auth.models import User
 import uuid
 
 # Create your models here.
+class Label(models.Model):
+    name = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     name = models.CharField(max_length=30)
     slug = models.SlugField()
     price = models.DecimalField(max_digits=4, decimal_places=2)
     description = models.TextField()
     image = models.ImageField(default='fallback.png', blank=True)
+    labels = models.ManyToManyField('Label', through='LabelProduct')
     
     def __str__(self):
         return self.name
+
+class LabelProduct(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.product.name
 
 class Cart(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True)

@@ -11,28 +11,38 @@
                 <button class="openBtn">&#10132;</button>
                 <div id="quicksearch-modal" class="quicksearch">
                     <div class="quicksearch-header">
-                        <h3>Menu</h3>
+                        <h2>&nbsp;Menu</h2>
                         <div class="closeBtn">&times;</div>
                     </div>
                     <hr>
                     <div class="label">
-                        <p>- Burger</p>
-                        <p>- Pizza</p>
-                        <p>- Main</p>
-                        <p>- Sides</p>
-                        <p>- Drinks</p>
-                        <p>- Deserts</p>
-                        <p>- Fresh</p>
-                        <p>- Expensive</p>
+                        {% for label in labels %}
+                            <h6>- {{ label.name }}</p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-            <div class="menu">
+            <div>
+                {% if search_query != "" %}
+                <h3 class="results">
+                    Our results from your search: <span>"{{ search_query }}"</span>
+                </h3>
+                {% endif %}
+                {% if products|length == 0 %}
+                <h6>
+                    Sorry but we could not understand what you were looking for.
+                    Click <a href="/products/" class="underlined">here</a> to go
+                     to menu. &nbsp;&nbsp;&nbsp;
+                </h6>
+                {% else %}
+                <div class="menu">
                 {% for product in products %}
                     <div class="card">
                         <a href="{% url 'products:page' slug=product.slug %}">
                             <div class="image-container">
-                                <img class="product-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                <img class="product-img" 
+                                src="{{ product.image.url }}" 
+                                alt="{{ product.name }}">
                             </div>
                         </a>
                         <div class="small-product-info">
@@ -46,6 +56,9 @@
                         </div>
                     </div>
                 {% endfor %}
+                </div>
+                {% endif %}
+                
             </div>
             <div class="cart" id="cart-modal">
                 Cart

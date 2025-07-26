@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Product, Cart, CartItem
+from .models import Product, Cart, CartItem, Label, LabelProduct
 from django.http import HttpResponse, JsonResponse
 import json
 from django.contrib import messages
@@ -7,12 +7,21 @@ from django.contrib import messages
 
 # Create your views here.
 def products_menu(request):
-    products = Product.objects.all()
-    return render(request, 'products/menu.html', {'products': products})
+    search_query=request.GET.get('search','')
+    if search_query=='':
+        products = Product.objects.all()
+    else:
+        products = Product.objects.filter(name__icontains = search_query)
+    labels = Label.objects.all()
+    return render(request, 'products/menu.html', {'products': products, 
+                                                  'labels':labels,
+                                                  'search_query':search_query})
 
 def product_page(request, slug):
     product = Product.objects.get(slug=slug)
-    return render(request, 'products/product.html', {'product': product})
+    labels = product.labels.all()
+    return render(request, 'products/product.html', {'product': product, 
+                                                     'labels':labels,})
 
 def cart(request):
 
