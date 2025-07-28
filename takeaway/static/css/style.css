@@ -17,6 +17,20 @@ main {
     padding-top: 100px;
 }
 
+.product-quantity-num {
+    padding: 1%;
+    background-color: white;
+    margin: 20% 15%;
+    border-radius: 10px;
+}
+
+.product-quantity {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 10% 0 0 10%;
+    text-align: center;
+}
+
 nav {
     display: grid;
     grid-template-columns: 3fr 2fr 3fr;
@@ -36,12 +50,66 @@ nav {
 
 .quicksearch {
     display: none;
-    height: 100%;
+}
+
+.product-label {
+    padding: 1%;
+    display: inline;
+    background-color: rgb(255, 208, 208);
+    border-radius: 50px;
+    font-size: small;
+}
+
+.product-description {
+    margin-top: 1%;
+}
+
+.ingredients {
+    height: 30%;
+    background-color: white;
+    border-radius: 15px;
 }
 
 .label {
-    font-size: xx-large;
-    line-height: 10px;
+    padding: 5% 5% 5% 0;
+    font-size: x-large;
+    font-weight: 100;
+    color:#797979;
+}
+
+.cart-item-quantity {
+    position:absolute;
+    top: 46%;
+    left: 57%;
+    transform: translate(-50%,-50%);
+    color:rgb(184,37,8);
+}
+
+.product-pm {
+    width: 100%;
+    border-radius: 25%;
+    border: transparent;
+    background-color: rgb(230, 230, 230);
+    margin-top: 5%;
+}
+
+.product-add {
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgb(32, 187, 1);
+    color: white;
+    font-size: 2rem;
+    font-family: "Roboto", "consolas", sans-serif;
+    margin-top: 5%;
+}
+
+.product-pm {
+    width: 100%;
+    border-radius: 25%;
+    border: transparent;
+    background-color: rgb(230, 230, 230);
+    margin-top: 5%;
 }
 
 .expand-grid {
@@ -56,6 +124,14 @@ nav {
     grid-template-columns: 2fr 1fr;
 }
 
+.underlined {
+    text-decoration: underline;
+}
+
+.results {
+    padding: 1% 0;
+}
+
 .menu {
     display: grid;
     column-gap: 30px;
@@ -63,6 +139,11 @@ nav {
     grid-template-columns: repeat(4, 1fr);
     padding: 25px;
     z-index: 1;
+
+}
+
+.menu-container {
+    display: grid;
 }
 
 img {
@@ -112,9 +193,26 @@ input {
 
 .two-column {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 3fr;
     width: 100%;
+    vertical-align: middle;
+    background-color: white;
+    padding: 5%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: 1.5rem;
+    box-shadow: 0 0 10px gray;
 }
+
+.inset {
+    box-shadow: inset 0 0 10px gray;
+    padding: 2.5%;
+    border-radius: 30px;
+    background-color: rgb(252,246,245);
+    text-align: left;
+    font-size: xx-large;
+}
+
 .expanded-image {
     width: 100%;
 }
@@ -132,9 +230,9 @@ input {
     margin: 10%
 }
 
-.ingredients {
-    height: 300px;
-    background-color: white;
+.searchbar-text {
+    font-size:1.2rem;
+    padding-left: 20px;
 }
 
 .quicksearch, .cart {
@@ -163,6 +261,7 @@ input {
     grid-template-columns: repeat(4, 1fr);
     padding-bottom: 5%;
     align-items: center;
+    vertical-align: middle;
 }
 
 .total {
@@ -211,13 +310,6 @@ input {
     text-align: center;
     margin-left: 30%;
     margin-right: 30%;
-}
-
-.plus-button, .minus-button {
-    width: 100%;
-    border-radius: 25%;
-    border: transparent;
-    background-color: rgb(230, 230, 230);
 }
 
 .plus-button, .minus-button {
@@ -352,6 +444,12 @@ a:hover {
 .dropbtn {
     background-color: transparent;
     border: none;
+}
+
+span {
+    font-weight: 300;
+    font-style: italic;
+    color: #797979;
 }
 
 .icons {

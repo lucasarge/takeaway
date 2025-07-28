@@ -20,7 +20,14 @@
         </a>
 
         <div class="searchbar">
-            <input type="text" placeholder="Search...">
+            <form method="GET" action="{% url 'products:menu' %}">
+                <input 
+                name="search" 
+                type="text" 
+                placeholder="Search..." 
+                value="{{ request.GET.search|default_if_none:'' }}"
+                class="searchbar-text">
+            </form>
         </div>
 
         <div class="icons">
@@ -41,6 +48,7 @@
                 <div class="icon">
                     <a href="/products/cart">
                         <img src="/media/cart-icons8.png" alt="">
+                        <p class="cart-item-quantity">{{ cart_item_quantity }}</p>
                     </a>
                 </div>
             </div>

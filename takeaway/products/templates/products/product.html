@@ -8,14 +8,30 @@
     <section>
         <div class="container">
             <div></div>
-            <div class=two-column>
-                <div>
-                    <div class='expanded-image'>
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                    </div>
-                </div>
-                <div>
+            <div class="two-column">
+                <img class='expanded-image' src="{{ product.image.url }}" alt="{{ product.name }}">
+                <div class="inset">
                     <h2>{{ product.name }}</h2>
+                    <hr>
+                    {% for label in labels %}
+                    <h3 class="product-label">{{ label.name }}</h3>
+                    {% endfor %}
+                    <h6 class="product-description">{{ product.description }}</h6>
+                    <div class="ingredients"></div>
+                    <div class="small-product-info">
+                        <button id="add" class="product-add" value="{{ product.id }}">${{ product.price }}</button>
+                        <div class="product-quantity">
+                            {% if item.quantity == null %}
+                            <button class="product-pm">-</button>
+						    <h5 class="product-quantity-num">0</h5>
+						    <button id="plus" class="product-pm" value="{{ product.id }}">+</button>
+                            {% else %}
+                            <button id="minus" class="product-pm" value="{{ item.product.id }}">-</button>
+                            <h5 class="product-quantity-num">{{ item.quantity }}</h5>
+                            <button id="plus" class="product-pm" value="{{ product.id }}">+</button>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
             <div></div>

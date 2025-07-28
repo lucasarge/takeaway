@@ -19,13 +19,13 @@
 				{% for item in items %}
 					<div class="cart-image-name">
 						<img class="cart-image" src="{{ item.product.image.url }}" alt="">
-						<h5>{{ item.product.name }}</h5>
+						<h5><a href="/products/{{ item.product.slug }}">{{ item.product.name }}</a></h5>
 					</div>
 
 					<div class="quantity">
-						<button class="minus-button" value="{{ item.product.id }}">-</button>
+						<button id="minus" class="minus-button" value="{{ item.product.id }}">-</button>
 						<h5>{{ item.quantity }}</h5>
-						<button class="plus-button" value="{{ item.product.id }}">+</button>
+						<button id="plus" class="plus-button" value="{{ item.product.id }}">+</button>
 					</div>
 					
 					<h5>${{ item.product.price }}</h5>
