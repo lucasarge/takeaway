@@ -32,7 +32,9 @@
 					<h5>${{ item.price }}</h5>
 				{% endfor %}
 			</div>
-			{% if items|length == 0%}
+			{% if not request.user.is_authenticated %}
+			<p>You cannot access cart, register <a href="/users/register">here</a>.</p>
+			{% elif items|length == 0 %}
 				<p>Your cart is empty, go <a href="/products/">shopping</a>?</p>
 			{% else %}
 				<button class="total">Total: ${{ cart.total_price }}</button>

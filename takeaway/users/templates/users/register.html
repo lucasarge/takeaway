@@ -9,6 +9,7 @@
         <div></div>
         <div class="register-div">
             <h1>Register</h1>
+            <p>If you are already have an account click <a href="/users/login" class="underlined">here</a>.</p>
             <form class="register" action="/users/register" method="post">
                 {% csrf_token %}
                 {{ form }}

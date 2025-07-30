@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Product, Cart, CartItem, Label, LabelProduct
+from .models import Product, Cart, CartItem, Label, LabelProduct, Ingredient, IngredientProduct
 from django.http import HttpResponse, JsonResponse
 import json
 from django.contrib import messages
@@ -25,11 +25,16 @@ def products_menu(request):
 def product_page(request, slug):
     product = Product.objects.get(slug=slug)
     labels = product.labels.all()
-    cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-    cartitem = cart.cartitems.filter(product=product).first()
+    ingredients = product.ingredients.all()
+    cartitem = None
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+        cartitem = cart.cartitems.filter(product=product).first()
     return render(request, 'products/product.html', {'product': product, 
-                                                     'labels':labels,
-                                                     'item':cartitem})
+                                                    'labels':labels,
+                                                    'item':cartitem,
+                                                    'ingredients':ingredients})
+                                                        
     
 
 def cart(request):
@@ -43,20 +48,21 @@ def cart(request):
 
     return render(request, "products/cart.html", {"cart":cart, "items":cartitems})
 
-
 def add_to_cart(request):
     data = json.loads(request.body)
     product_id = data["id"]
+    quantity = data.get("quantity", 1)
     product = Product.objects.get(id=product_id)
 
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
         cartitem, created = CartItem.objects.get_or_create(cart=cart, product=product)
-        cartitem.quantity += 1
+        cartitem.quantity += quantity
         cartitem.save()
-
         num_of_items = sum(item.quantity for item in cart.cartitems.all())
-    return JsonResponse(num_of_items, safe=False)
+        return JsonResponse(num_of_items, safe=False)
+    messages.error(request, "You need to <a class='underlined' href='/users/register'>login.</a>")
+    return JsonResponse({"error": "User not authenticated"}, status=401)
 
 def remove_from_cart(request):
     data = json.loads(request.body)
@@ -76,4 +82,7 @@ def remove_from_cart(request):
             num_of_items = sum(item.quantity for item in cart.cartitems.all())
         else:
             num_of_items = 0
-    return JsonResponse(num_of_items, safe=False)
+        return JsonResponse(num_of_items, safe=False)
+    messages.error(request, "User is not authenticated.")
+    return JsonResponse({"error": "User not authenticated"}, status=401)
+    

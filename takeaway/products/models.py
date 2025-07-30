@@ -9,6 +9,18 @@ class Label(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Ingredient(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+    
+class Allergy(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     name = models.CharField(max_length=30)
@@ -17,9 +29,21 @@ class Product(models.Model):
     description = models.TextField()
     image = models.ImageField(default='fallback.png', blank=True)
     labels = models.ManyToManyField('Label', through='LabelProduct')
+    ingredients = models.ManyToManyField('Ingredient', through='IngredientProduct')
     
     def __str__(self):
         return self.name
+
+class AllergyIngredient(models.Model):
+    allergy = models.ForeignKey(Allergy, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+
+class IngredientProduct(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.product.name
 
 class LabelProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
