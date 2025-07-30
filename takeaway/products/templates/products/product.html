@@ -16,23 +16,32 @@
                 <div class="inset">
                     <h2>{{ product.name }}</h2>
                     <hr>
-                    {% for label in labels %}
-                    <h3 class="product-label">{{ label.name }}</h3>
-                    {% endfor %}
+                    <div>
+                        {% for label in labels %}
+                        <h3 class="product-label">{{ label.name }}</h3>
+                        {% endfor %}
+                        
+                    </div>
+                    
                     <h6 class="product-description">{{ product.description }}</h6>
-                    <div class="ingredients"></div>
+                    <div class="ingredients">
+                        {% for ingredient in ingredients %}
+                        <h3 class="product-ingredient">{{ ingredient.name }}</h3>
+                        {% endfor %}
+                    </div>
+                    <div class="allergies">
+                        {% for allergy in allergies %}
+                        <h3 class="product-allergy">{{ allergy }}</p>
+                        {% endfor %}
+                    </div>
                     <div class="product-info">
                         <button id="add" class="product-add" value="{{ product.id }}">${{ product.price }}</button>
                         <div class="product-quantity">
-                            {% if item.quantity == null %}
-                            <button class="product-pm">-</button>
-						    <h5 class="product-quantity-num">0</h5>
-						    <button id="plus" class="product-pm" value="{{ product.id }}">+</button>
-                            {% else %}
-                            <button id="minus" class="product-pm" value="{{ item.product.id }}">-</button>
-                            <h5 class="product-quantity-num">{{ item.quantity }}</h5>
-                            <button id="plus" class="product-pm" value="{{ product.id }}">+</button>
-                            {% endif %}
+                            <button id="pminus" class="product-pm">-</button>
+                            <h5 class="product-quantity-num" id="quantity-display">
+                                1
+                            </h5>
+                            <button id="pplus" class="product-pm">+</button>
                         </div>
                     </div>
                 </div>

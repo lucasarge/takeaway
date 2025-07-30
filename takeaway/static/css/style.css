@@ -126,10 +126,10 @@ input {
     display: block;
 }
 
-.error-notification {
+#error-notification {
     position: fixed;
     left: 50%;
-    top: 20px;
+    top: 110px;
     transform: translate(-50%);
     background-color: #c20d00;
     color: white;
@@ -142,7 +142,7 @@ input {
     pointer-events: auto;
 }
 
-.error-notification.hidden {
+#error-notification.hidden {
     opacity: 0;
     pointer-events: none;
 }
@@ -288,15 +288,24 @@ input {
     text-align: center;
 }
 
-.product-label, .product-ingredient {
+.product-label, .product-ingredient, .product-allergy {
     padding: 1%;
-    display: inline;
+    display: inline-block;
     border-radius: 50px;
     font-size: small;
 }
 
-.product-label {
+.allergies {
+    padding: 0;
+}
+
+.product-allergy {
     background-color: rgb(255, 208, 208);
+    margin-left: 2.5%;
+}
+
+.product-label {
+    background-color: rgb(155, 247, 167);
 }
 
 .product-ingredient {
@@ -309,7 +318,7 @@ input {
 
 .ingredients {
     padding-left: 2.5%;
-    height: 30%;
+    height: 17%;
     background-color: white;
     border-radius: 15px;
 }

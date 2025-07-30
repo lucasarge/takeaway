@@ -12,6 +12,7 @@ class Label(models.Model):
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=30)
+    allergy = models.ManyToManyField('Allergy', through='AllergyIngredient')
 
     def __str__(self):
         return self.name
@@ -37,6 +38,9 @@ class Product(models.Model):
 class AllergyIngredient(models.Model):
     allergy = models.ForeignKey(Allergy, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.ingredient.name
 
 class IngredientProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)

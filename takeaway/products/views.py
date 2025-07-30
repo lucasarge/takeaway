@@ -26,6 +26,9 @@ def product_page(request, slug):
     product = Product.objects.get(slug=slug)
     labels = product.labels.all()
     ingredients = product.ingredients.all()
+    allergies = []
+    for ingredient in ingredients:
+        allergies.extend(ingredient.allergy.all())
     cartitem = None
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
@@ -33,7 +36,8 @@ def product_page(request, slug):
     return render(request, 'products/product.html', {'product': product, 
                                                      'labels':labels,
                                                      'item':cartitem,
-                                                     'ingredients':ingredients})
+                                                     'ingredients':ingredients,
+                                                     'allergies': allergies})
 
 def cart(request):
 
