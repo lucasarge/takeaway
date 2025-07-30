@@ -4,32 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} Differing app title on each page. {% endcomment %}
     <title>
         {% block title %}
             Django App
         {% endblock %}
     </title>
+    {% comment %} Basic setup linking css and JS. {% endcomment %}
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
+    {% comment %} Collecting cookies. {% endcomment %}
+    <form style="display: none;">
+        {% csrf_token %}
+    </form>
     <nav>
+        {% comment %} Logo amd home button. {% endcomment %}
         <div class="logo-login">
             <a class="logo-link" href="/products">
                 <img class="logo" src="/media/logo.png" alt="logo">   
             </a>
+            {% comment %} If logged in show details else prompt.{% endcomment %}
             <div class="auth-info">
                 {% if request.user.is_authenticated %}
                 <p>Signed in as:</p>
                 <p>{{ request.user }}</p>
                 {% else %}
                 <p>You need to login.</p>
-                <p>Click <a href="/users/register" class="underlined">Here</a></p>
+                <p>Click 
+                    <a href="/users/register" class="underlined">Here</a>
+                </p>
                 {% endif %}
             </div>
         </div>
-
+        {% comment %} Searchbar connecting to products views. {% endcomment %}
         <div class="searchbar">
             <form method="GET" action="{% url 'products:menu' %}">
                 <input 
@@ -40,9 +50,8 @@
                 class="searchbar-text">
             </form>
         </div>
-
+        {% comment %} Seperates icons with equal spacing. {% endcomment %}
         <div class="icons">
-            
             <div>
                 <div class="icon">
                     <button class="dropbtn">
@@ -54,17 +63,18 @@
                     </div>
                 </div>
             </div>
-
             <div>
                 <div class="icon">
                     <a href="/products/cart">
                         <img src="/media/cart-icons8.png" alt="">
-                        <p class="cart-item-quantity">{{ cart_item_quantity }}</p>
+                        <p class="cart-item-quantity">
+                            {{ cart_item_quantity }}
+                        </p>
                     </a>
                 </div>
             </div>
-
             <div>
+                {% comment %} Dropdown icon with links in it. {% endcomment %}
                 <div class="icon">
                     <button class="dropbtn">
                         <img src="/media/user-icons8.png" alt="">
@@ -72,13 +82,17 @@
                     <div class="dropdown-content">
                         <a href="/users/register">Register</a>
                         <a href="/users/login">Login</a>
+                        {% comment %} Only appears if logged in.{% endcomment %}
                         {% if request.user.is_authenticated %}
                         <form action="{% url 'users:logout' %}" method="post">
                             {% csrf_token %}
                             <button type="submit">Logout</button>
                         </form>
                         {% endif %}
-                        <a href="/admin">Admin</a>
+                        {% comment %} Only appears if admin. {% endcomment %}
+                        {% if user.is_superuser %}
+                            <a href="/admin">Admin</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -86,6 +100,7 @@
         </div>
     </nav>
     <main>
+        {% comment %} Error notification to help users. {% endcomment %}
         <div id="error-notification" class="hidden">
             {% if messages %}
                 {% for message in messages %}
@@ -93,6 +108,7 @@
                 {% endfor %}
             {% endif %}
         </div>
+        {% comment %} Individual page content displayed below. {% endcomment %}
         {% block content %}
         {% endblock %}
     </main>

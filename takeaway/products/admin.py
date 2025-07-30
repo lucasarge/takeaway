@@ -4,7 +4,7 @@ from .models import Product, Cart, CartItem
 from .models import Ingredient, IngredientProduct
 from .models import Allergy, AllergyIngredient
 
-# Register your models here.
+# Connecting models databases to my admin page.
 admin.site.register([Product, Cart, CartItem, 
                      Label, LabelProduct, 
                      Ingredient, IngredientProduct,

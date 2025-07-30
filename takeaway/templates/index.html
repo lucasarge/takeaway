@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
+{% comment %} Uses my layout.html as a base. {% endcomment %}
 
 {% block title %}
+    {% comment %} Title used for tab name. {% endcomment %}
     Home
 {% endblock %}
 
 {% block content %}
+    {% comment %} Content of about page. {% endcomment %}
     <h1>Home</h1>
     <p>Hello World, this is the home page. Check out my <a href="/about">About</a> page.</p>
 {% endblock %}

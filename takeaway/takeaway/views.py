@@ -1,13 +1,10 @@
-#from django.http import HttpResponse
+# Django's function for rendering pages.
 from django.shortcuts import render
-from products.models import Cart
 
 def index(request):
-    #return HttpResponse("Hello World!")
+    # This returns a render of index.html.
     return render(request, 'index.html')
 
-
-
 def about(request):
-    #return HttpResponse("About page.")
+    # This returns a render of about.html.
     return render(request, 'about.html')

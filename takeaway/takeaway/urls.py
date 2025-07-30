@@ -20,6 +20,7 @@ from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 
+# This is a hub for all of the links to be collected and connects them to views.
 urlpatterns = [
     path('admin', admin.site.urls),
     path('', views.index),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('products/', include('products.urls'))
 ]
 
+# This is helping share static files throughout my project.
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

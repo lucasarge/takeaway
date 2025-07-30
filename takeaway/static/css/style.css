@@ -272,6 +272,9 @@ input {
     background-color: rgb(252,246,245);
     text-align: left;
     font-size: xx-large;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1.5fr;
+    row-gap: 1%;
 }
 
 .product-quantity-num {
@@ -295,21 +298,18 @@ input {
     font-size: small;
 }
 
-.allergies {
-    padding: 0;
-}
-
 .product-allergy {
+    margin-top: 30px;
     background-color: rgb(255, 208, 208);
-    margin-left: 2.5%;
+    margin-right: 10px;
 }
 
 .product-label {
-    background-color: rgb(155, 247, 167);
+    background-color: rgb(247, 209, 155);
 }
 
 .product-ingredient {
-    background-color: rgb(186, 219, 253);
+    background-color: rgb(248, 253, 186);
 }
 
 .product-description {
@@ -318,7 +318,7 @@ input {
 
 .ingredients {
     padding-left: 2.5%;
-    height: 17%;
+    height: 80%;
     background-color: white;
     border-radius: 15px;
 }

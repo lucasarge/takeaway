@@ -7,6 +7,7 @@
 {% block content %}
     <section>
         <div class="container">
+            {% comment %} Quicksearch modal that can be hidden. {% endcomment %}
             <div>
                 <button class="openBtn">&#10132;</button>
                 <div id="quicksearch-modal" class="quicksearch">
@@ -15,6 +16,7 @@
                         <div class="closeBtn">&times;</div>
                     </div>
                     <hr>
+                    {% comment %}Get labels from DB and display.{% endcomment %}
                     <div class="label">
                         {% for label in labels %}
                             <h6><a href="/products/?search={{ label.name }}">
@@ -25,21 +27,25 @@
                 </div>
             </div>
             <div>
+                {% comment %}If searchquery!=none show search.{% endcomment %}
                 {% if search_query != "" %}
                 <h3 class="results">
                     &nbsp;Our results from your search: 
                     <span>"{{ search_query }}"</span>
                 </h3>
                 {% endif %}
+                {% comment %}If can't find item display error.{% endcomment %}
                 {% if products|length == 0 %}
                 <h6>
                     Sorry but we could not understand what you were looking for.
                     Click <a href="/products/" class="underlined">here</a> to go
                      to menu. &nbsp;&nbsp;&nbsp;
                 </h6>
+                {% comment %} Display all items related {% endcomment %}
                 {% else %}
                 <div class="menu">
                 {% for product in products %}
+                {% comment %} Product card with only variables. {% endcomment %}
                     <div class="card">
                         <a href="{% url 'products:page' slug=product.slug %}">
                             <div class="image-container">
@@ -53,7 +59,10 @@
                                 <h3>{{ product.name }}</h3>
                                 <p>${{ product.price }}</p>
                             </a>
-                            <button id="add" class="add-button" value="{{ product.id }}">
+                            {% comment %} Add button link w/ JS {% endcomment %}
+                            <button id="add" 
+                            class="add-button" 
+                            value="{{ product.id }}">
                                 ADD
                             </button>
                         </div>
@@ -61,8 +70,8 @@
                 {% endfor %}
                 </div>
                 {% endif %}
-                
             </div>
+            {% comment %} Future feature not yet implemented. {% endcomment %}
             <div class="cart" id="cart-modal">
                 Cart
             </div>
