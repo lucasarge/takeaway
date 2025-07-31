@@ -53,6 +53,16 @@ nav {
     z-index: 10;
 }
 
+.logo-login {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: left;
+}
+
+.auth-info {
+    margin-top: 33px;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
@@ -98,20 +108,43 @@ input {
     z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content a, .dropdown-content button {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     font-size: 10px;
+    border: none;
+    width: 100%;
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover, .dropdown-content button:hover {
     background-color: #ddd;
 }
 
 .icon:hover .dropdown-content {
     display: block;
+}
+
+.error-notification {
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    transform: translate(-50%);
+    background-color: #c20d00;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+.error-notification.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /*
@@ -255,12 +288,19 @@ input {
     text-align: center;
 }
 
-.product-label {
+.product-label, .product-ingredient {
     padding: 1%;
     display: inline;
-    background-color: rgb(255, 208, 208);
     border-radius: 50px;
     font-size: small;
+}
+
+.product-label {
+    background-color: rgb(255, 208, 208);
+}
+
+.product-ingredient {
+    background-color: rgb(186, 219, 253);
 }
 
 .product-description {
@@ -268,6 +308,7 @@ input {
 }
 
 .ingredients {
+    padding-left: 2.5%;
     height: 30%;
     background-color: white;
     border-radius: 15px;
@@ -497,6 +538,10 @@ span {
     border-radius: 30px;
     font-size: 1.5rem;
     box-shadow: 0 0 10px gray;
+}
+
+.register-div p, .login-div p {
+    text-align: center;
 }
 
 .login-div{

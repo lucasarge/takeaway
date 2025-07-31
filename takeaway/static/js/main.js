@@ -7,6 +7,10 @@ var cartModal = document.getElementById("cart-modal");
 let addBtns = document.querySelectorAll("#add");
 let plusBtns = document.querySelectorAll("#plus");
 let minusBtns = document.querySelectorAll("#minus");
+let pplusBtn = document.getElementById("pplus")
+let pminusBtn = document.getElementById("pminus")
+let quantityDisplay = document.getElementById("quantity-display")
+let quantity = 1;
 
 function getCookie(name) {
     let cookieValue = null;
@@ -39,6 +43,11 @@ if (closeBtn != null) {
     }
 }
 
+function updatePage() {
+    setTimeout(function() {
+        location.reload()
+    }, 100);
+}
 
 // cartBtn.onclick = function() {
 //     if (cartModal.style.display == "block") {
@@ -50,20 +59,30 @@ if (closeBtn != null) {
 
 addBtns.forEach(addBtn=>{
     addBtn.addEventListener("click", addToCart)
-})
+});
 
 plusBtns.forEach(plusBtn=>{
     plusBtn.addEventListener("click", addToCart)
-})
+});
 
 minusBtns.forEach(minusBtn=>{
     minusBtn.addEventListener("click", removeFromCart)
-})
+});
 
-function updatePage() {
-    setTimeout(function() {
-        location.reload()
-    }, 100);
+if (pplusBtn) {
+    pplusBtn.addEventListener("click", () => {
+        quantity++;
+        quantityDisplay.textContent = quantity;
+    });
+}
+
+if (pminusBtn) {
+    pminusBtn.addEventListener("click", () => {
+        if (quantity > 1) {
+            quantity--;
+            quantityDisplay.textContent = quantity;
+        }
+    });
 }
 
 function removeFromCart(e){
@@ -92,7 +111,7 @@ function removeFromCart(e){
 function addToCart(e){
     let product_id = e.target.value
     let url = "/products/add_to_cart"
-    let data = {id:product_id}
+    let data = {id:product_id, quantity:quantity}
     
     fetch(url, {
         method: "POST",
@@ -109,4 +128,15 @@ function addToCart(e){
     })
     console.log(product_id)
     updatePage()
+}
+
+
+const errorDiv = document.getElementById("error-notification")
+
+if (errorDiv.textContent.trim() !== ""){
+    errorDiv.classList.remove('hidden');
+
+    setTimeout(() => {
+        errorDiv.classList.add('hidden')
+    }, 3000)
 }

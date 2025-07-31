@@ -9,7 +9,10 @@
         <div class="container">
             <div></div>
             <div class="two-column">
-                <img class='expanded-image' src="{{ product.image.url }}" alt="{{ product.name }}">
+                <div>
+                    <a href="/products">&times;</a>
+                    <img class='expanded-image' src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
                 <div class="inset">
                     <h2>{{ product.name }}</h2>
                     <hr>
