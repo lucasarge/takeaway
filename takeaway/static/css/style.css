@@ -1,9 +1,19 @@
+/*
+ /$$$$$$$   /$$$$$$  /$$$$$$$  /$$     /$$
+| $$__  $$ /$$__  $$| $$__  $$|  $$   /$$/
+| $$  \ $$| $$  \ $$| $$  \ $$ \  $$ /$$/ 
+| $$$$$$$ | $$  | $$| $$  | $$  \  $$$$/  
+| $$__  $$| $$  | $$| $$  | $$   \  $$/   
+| $$  \ $$| $$  | $$| $$  | $$    | $$    
+| $$$$$$$/|  $$$$$$/| $$$$$$$/    | $$    
+|_______/  \______/ |_______/     |__/                                            
+*/
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 body {
     min-height: 100vh;
@@ -15,21 +25,21 @@ body {
 
 main {
     padding-top: 100px;
-}
-
-.product-quantity-num {
-    padding: 1%;
-    background-color: white;
-    margin: 20% 15%;
-    border-radius: 10px;
-}
-
-.product-quantity {
+    flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 10% 0 0 10%;
-    text-align: center;
+    place-content: center;
 }
+
+/*
+ /$$        /$$$$$$  /$$     /$$ /$$$$$$  /$$   /$$ /$$$$$$$$
+| $$       /$$__  $$|  $$   /$$//$$__  $$| $$  | $$|__  $$__/
+| $$      | $$  \ $$ \  $$ /$$/| $$  \ $$| $$  | $$   | $$   
+| $$      | $$$$$$$$  \  $$$$/ | $$  | $$| $$  | $$   | $$   
+| $$      | $$__  $$   \  $$/  | $$  | $$| $$  | $$   | $$   
+| $$      | $$  | $$    | $$   | $$  | $$| $$  | $$   | $$   
+| $$$$$$$$| $$  | $$    | $$   |  $$$$$$/|  $$$$$$/   | $$   
+|________/|__/  |__/    |__/    \______/  \______/    |__/   
+*/
 
 nav {
     display: grid;
@@ -48,8 +58,201 @@ nav {
     grid-template-columns: 1fr 4fr 1fr;
 }
 
+input {
+    width: 100%;
+    height: 50px;
+    padding: 1%;
+    border-radius: 50px;
+    margin-top: 25px;
+    border: 1px solid #ccc;
+}
+
+.searchbar-text {
+    font-size:1.2rem;
+    padding-left: 20px;
+}
+
+.icons {
+    margin-top: 3.5%;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+}
+
+.icon {
+    position: relative;
+    float: right;
+}
+
+.dropbtn {
+    background-color: transparent;
+    border: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 10px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.icon:hover .dropdown-content {
+    display: block;
+}
+
+/*
+ /$$      /$$ /$$$$$$$$ /$$   /$$ /$$   /$$
+| $$$    /$$$| $$_____/| $$$ | $$| $$  | $$
+| $$$$  /$$$$| $$      | $$$$| $$| $$  | $$
+| $$ $$/$$ $$| $$$$$   | $$ $$ $$| $$  | $$
+| $$  $$$| $$| $$__/   | $$  $$$$| $$  | $$
+| $$\  $ | $$| $$      | $$\  $$$| $$  | $$
+| $$ \/  | $$| $$$$$$$$| $$ \  $$|  $$$$$$/
+|__/     |__/|________/|__/  \__/ \______/ 
+*/
+
+.results {
+    padding: 1% 0;
+}
+.quicksearch-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: large;
+}
+
+.closeBtn {
+    text-align: right;
+}
+
+.openBtn {
+    z-index: -1 ;
+    padding: 15px;
+    padding-left: 30px;
+    margin-left: -20px;
+    border-radius: 100px;
+    background-color: white;
+    color: black;
+    border: none;
+    box-shadow: 2px 0 5px gray;
+}
+.quicksearch, .cart {
+    background-color: rgb(255, 255, 255);
+    z-index: 4;
+    box-shadow: 2px 0 5px gray, -2px 0 5px gray;
+    padding: 5%;
+}
+
 .quicksearch {
     display: none;
+}
+
+.small-product-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.menu {
+    display: grid;
+    column-gap: 30px;
+    row-gap: 50px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 25px;
+    z-index: 1;
+
+}
+
+.cart {
+    display: none;
+}
+
+.card {
+    font-size: medium;
+    background: white;
+    padding: 5%;
+    border-radius: 10%;
+    box-shadow: 0 2px 5px gray, -1px 0 2.5px lightgray, 1px 0 2.5px lightgray; 
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    opacity: 1;
+}
+
+.image-container {
+    background-image: linear-gradient(rgba(0,0,0,0),rgb(220, 220, 220));
+    border-radius: 10%;
+    margin-bottom: 5%;
+}
+
+.add-button {
+    margin: 5%;
+    color: white;
+    background-color: rgb(32, 187, 1);
+    border-radius: 15px;
+    z-index: 3;
+}
+
+.add-button:hover {
+    background-color: rgb(28, 160, 1);
+    
+}
+
+.add-button:active {
+    background-color: rgb(184, 184, 184);
+    transform: scale(1.01);
+}
+
+/*
+ /$$$$$$$  /$$$$$$$   /$$$$$$  /$$$$$$$  /$$   /$$  /$$$$$$  /$$$$$$$$
+| $$__  $$| $$__  $$ /$$__  $$| $$__  $$| $$  | $$ /$$__  $$|__  $$__/
+| $$  \ $$| $$  \ $$| $$  \ $$| $$  \ $$| $$  | $$| $$  \__/   | $$   
+| $$$$$$$/| $$$$$$$/| $$  | $$| $$  | $$| $$  | $$| $$         | $$   
+| $$____/ | $$__  $$| $$  | $$| $$  | $$| $$  | $$| $$         | $$   
+| $$      | $$  \ $$| $$  | $$| $$  | $$| $$  | $$| $$    $$   | $$   
+| $$      | $$  | $$|  $$$$$$/| $$$$$$$/|  $$$$$$/|  $$$$$$/   | $$   
+|__/      |__/  |__/ \______/ |_______/  \______/  \______/    |__/   
+*/ 
+
+.expanded-image {
+    width: 100%;
+}
+
+.inset {
+    box-shadow: inset 0 0 10px gray;
+    padding: 2.5%;
+    border-radius: 30px;
+    background-color: rgb(252,246,245);
+    text-align: left;
+    font-size: xx-large;
+}
+
+.product-quantity-num {
+    padding: 1%;
+    background-color: white;
+    margin: 20% 15%;
+    border-radius: 10px;
+}
+
+.product-quantity {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 10% 0 0 10%;
+    text-align: center;
 }
 
 .product-label {
@@ -112,83 +315,13 @@ nav {
     margin-top: 5%;
 }
 
-.expand-grid {
-    display: grid;
-    grid-template-columns: 2fr 3fr 1fr;
-    width: 100%;
-    height: 100%;
-}
-
-.small-product-info {
+.product-info {
     display: grid;
     grid-template-columns: 2fr 1fr;
 }
 
-.underlined {
-    text-decoration: underline;
-}
-
-.results {
-    padding: 1% 0;
-}
-
-.menu {
-    display: grid;
-    column-gap: 30px;
-    row-gap: 50px;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 25px;
-    z-index: 1;
-
-}
-
-.menu-container {
-    display: grid;
-}
-
-img {
-    align-items: center;
-}
-
-.card {
-    font-size: medium;
-    background: white;
-    padding: 5%;
-    border-radius: 10%;
-    box-shadow: 0 2px 5px gray, -1px 0 2.5px lightgray, 1px 0 2.5px lightgray; 
-    position: relative;
-}
-
-.card:hover {
-    transform: scale(1.01);
-    opacity: 1;
-}
-
-h3 {
-    font-weight: 700;
-}
-
-p {
-    font-size: small;
-}
-
-main {
-    flex-grow: 1;
-    display: grid;
-    place-content: center;
-}
-
 .product-img {
     width: 100%;
-}
-
-input {
-    width: 100%;
-    height: 50px;
-    padding: 1%;
-    border-radius: 50px;
-    margin-top: 25px;
-    border: 1px solid #ccc;
 }
 
 .two-column {
@@ -204,47 +337,62 @@ input {
     box-shadow: 0 0 10px gray;
 }
 
-.inset {
-    box-shadow: inset 0 0 10px gray;
-    padding: 2.5%;
-    border-radius: 30px;
-    background-color: rgb(252,246,245);
-    text-align: left;
-    font-size: xx-large;
+/*
+  /$$$$$$  /$$$$$$ /$$   /$$  /$$$$$$  /$$   /$$ /$$        /$$$$$$  /$$$$$$$ 
+ /$$__  $$|_  $$_/| $$$ | $$ /$$__  $$| $$  | $$| $$       /$$__  $$| $$__  $$
+| $$  \__/  | $$  | $$$$| $$| $$  \__/| $$  | $$| $$      | $$  \ $$| $$  \ $$
+|  $$$$$$   | $$  | $$ $$ $$| $$ /$$$$| $$  | $$| $$      | $$$$$$$$| $$$$$$$/
+ \____  $$  | $$  | $$  $$$$| $$|_  $$| $$  | $$| $$      | $$__  $$| $$__  $$
+ /$$  \ $$  | $$  | $$\  $$$| $$  \ $$| $$  | $$| $$      | $$  | $$| $$  \ $$
+|  $$$$$$/ /$$$$$$| $$ \  $$|  $$$$$$/|  $$$$$$/| $$$$$$$$| $$  | $$| $$  | $$
+ \______/ |______/|__/  \__/ \______/  \______/ |________/|__/  |__/|__/  |__/
+*/
+
+.underlined {
+    text-decoration: underline;
 }
 
-.expanded-image {
-    width: 100%;
+img {
+    align-items: center;
 }
 
-.image-container {
-    background-image: linear-gradient(rgba(0,0,0,0),rgb(220, 220, 220));
-    border-radius: 10%;
-    margin-bottom: 5%;
+h3 {
+    font-weight: 700;
 }
 
-.expand-image-container {
-    background-image: linear-gradient(rgba(0,0,0,0),rgb(220, 220, 220));
-    border-radius: 10%;
-    margin-bottom: 5%;
-    margin: 10%
+p {
+    font-size: small;
 }
 
-.searchbar-text {
-    font-size:1.2rem;
-    padding-left: 20px;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.quicksearch, .cart {
-    background-color: rgb(255, 255, 255);
-    z-index: 4;
-    box-shadow: 2px 0 5px gray, -2px 0 5px gray;
-    padding: 5%;
+h1 {
+    text-align: center;
 }
 
-.cart {
-    display: none;
+a:hover {
+    opacity: .85;
 }
+
+span {
+    font-weight: 300;
+    font-style: italic;
+    color: #797979;
+}
+
+/*
+  /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$
+ /$$__  $$ /$$__  $$| $$__  $$|__  $$__/
+| $$  \__/| $$  \ $$| $$  \ $$   | $$   
+| $$      | $$$$$$$$| $$$$$$$/   | $$   
+| $$      | $$__  $$| $$__  $$   | $$   
+| $$    $$| $$  | $$| $$  \ $$   | $$   
+|  $$$$$$/| $$  | $$| $$  | $$   | $$   
+ \______/ |__/  |__/|__/  |__/   |__/   
+*/
 
 .shopping-cart {
     width: 100%;
@@ -288,8 +436,7 @@ input {
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     font-size: 1.5rem;
-    box-shadow: 0 0 10px gray;
-    
+    box-shadow: 0 0 10px gray;   
 }
 
 .cart-image {
@@ -318,6 +465,7 @@ input {
     border: transparent;
     background-color: rgb(230, 230, 230);
 }
+
 .plus-button:hover, .minus-button:hover {
     background-color: rgb(206, 206, 206);
 }
@@ -326,58 +474,16 @@ input {
     transform: scale(1.01);
 }
 
-.add-button {
-    margin: 5%;
-    color: white;
-    background-color: rgb(32, 187, 1);
-    border-radius: 15px;
-    z-index: 3;
-}
-
-.add-button:hover {
-    background-color: rgb(28, 160, 1);
-    
-}
-
-.add-button:active {
-    background-color: rgb(184, 184, 184);
-    transform: scale(1.01);
-}
-
-.quicksearch-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-size: large;
-}
-
-.closeBtn {
-    text-align: right;
-}
-
-.openBtn {
-    z-index: -1 ;
-    padding: 15px;
-    padding-left: 30px;
-    margin-left: -20px;
-    border-radius: 100px;
-    background-color: white;
-    color: black;
-    border: none;
-    box-shadow: 2px 0 5px gray;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-h1 {
-    text-align: center;
-}
-
-a:hover {
-    opacity: .85;
-}
+/*
+ /$$   /$$  /$$$$$$  /$$$$$$$$ /$$$$$$$ 
+| $$  | $$ /$$__  $$| $$_____/| $$__  $$
+| $$  | $$| $$  \__/| $$      | $$  \ $$
+| $$  | $$|  $$$$$$ | $$$$$   | $$$$$$$/
+| $$  | $$ \____  $$| $$__/   | $$__  $$
+| $$  | $$ /$$  \ $$| $$      | $$  \ $$
+|  $$$$$$/|  $$$$$$/| $$$$$$$$| $$  | $$
+ \______/  \______/ |________/|__/  |__/
+*/
 
 .form {
     grid-template-columns: repeat(3, 1fr);
@@ -440,57 +546,3 @@ a:hover {
     padding: 2%;
     border-radius: 20px;
 }
-
-.dropbtn {
-    background-color: transparent;
-    border: none;
-}
-
-span {
-    font-weight: 300;
-    font-style: italic;
-    color: #797979;
-}
-
-.icons {
-    margin-top: 3.5%;
-    display: grid;
-    grid-template-columns: 3fr 1fr 1fr 1fr;
-}
-
-.icon {
-    position: relative;
-    float: right;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #f1f1f1;
-    min-width: 10px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 10px;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.icon:hover .dropdown-content {display: block;}
-
-
-/*
-red: rgb(184,37,8)
-bg: rgb(252,246,245)
-text: rgb(255,255,255)
-font: roboto normal
-logo: cabin
-searchbar: verdana
-*/
