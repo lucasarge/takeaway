@@ -6,7 +6,9 @@
 | $$__  $$| $$  | $$| $$  | $$   \  $$/   
 | $$  \ $$| $$  | $$| $$  | $$    | $$    
 | $$$$$$$/|  $$$$$$/| $$$$$$$/    | $$    
-|_______/  \______/ |_______/     |__/                                            
+|_______/  \______/ |_______/     |__/     
+
+All CSS classes shared accross the body.
 */
 
 * {
@@ -31,6 +33,54 @@ main {
 }
 
 /*
+  /$$$$$$  /$$$$$$ /$$   /$$  /$$$$$$  /$$   /$$ /$$        /$$$$$$  /$$$$$$$ 
+ /$$__  $$|_  $$_/| $$$ | $$ /$$__  $$| $$  | $$| $$       /$$__  $$| $$__  $$
+| $$  \__/  | $$  | $$$$| $$| $$  \__/| $$  | $$| $$      | $$  \ $$| $$  \ $$
+|  $$$$$$   | $$  | $$ $$ $$| $$ /$$$$| $$  | $$| $$      | $$$$$$$$| $$$$$$$/
+ \____  $$  | $$  | $$  $$$$| $$|_  $$| $$  | $$| $$      | $$__  $$| $$__  $$
+ /$$  \ $$  | $$  | $$\  $$$| $$  \ $$| $$  | $$| $$      | $$  | $$| $$  \ $$
+|  $$$$$$/ /$$$$$$| $$ \  $$|  $$$$$$/|  $$$$$$/| $$$$$$$$| $$  | $$| $$  | $$
+ \______/ |______/|__/  \__/ \______/  \______/ |________/|__/  |__/|__/  |__/
+
+All CSS classes relating to text, images or other miscellaneous.
+*/
+
+.underlined {
+    text-decoration: underline;
+}
+
+img {
+    align-items: center;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+p {
+    font-size: small;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    text-align: center;
+}
+
+a:hover {
+    opacity: .85;
+}
+
+span {
+    font-weight: 300;
+    font-style: italic;
+    color: #797979;
+}
+
+/*
  /$$        /$$$$$$  /$$     /$$ /$$$$$$  /$$   /$$ /$$$$$$$$
 | $$       /$$__  $$|  $$   /$$//$$__  $$| $$  | $$|__  $$__/
 | $$      | $$  \ $$ \  $$ /$$/| $$  \ $$| $$  | $$   | $$   
@@ -39,6 +89,8 @@ main {
 | $$      | $$  | $$    | $$   | $$  | $$| $$  | $$   | $$   
 | $$$$$$$$| $$  | $$    | $$   |  $$$$$$/|  $$$$$$/   | $$   
 |________/|__/  |__/    |__/    \______/  \______/    |__/   
+
+All CSS classes relating to the layout page.
 */
 
 nav {
@@ -156,6 +208,8 @@ input {
 | $$\  $ | $$| $$      | $$\  $$$| $$  | $$
 | $$ \/  | $$| $$$$$$$$| $$ \  $$|  $$$$$$/
 |__/     |__/|________/|__/  \__/ \______/ 
+
+All CSS classes relating to the menu page.
 */
 
 .results {
@@ -217,7 +271,8 @@ input {
     background: white;
     padding: 5%;
     border-radius: 10%;
-    box-shadow: 0 2px 5px gray, -1px 0 2.5px lightgray, 1px 0 2.5px lightgray; 
+    box-shadow: 0 2px 5px gray, -1px 0 2.5px lightgray, 
+    1px 0 2.5px lightgray; 
     position: relative;
 }
 
@@ -259,6 +314,8 @@ input {
 | $$      | $$  \ $$| $$  | $$| $$  | $$| $$  | $$| $$    $$   | $$   
 | $$      | $$  | $$|  $$$$$$/| $$$$$$$/|  $$$$$$/|  $$$$$$/   | $$   
 |__/      |__/  |__/ \______/ |_______/  \______/  \______/    |__/   
+
+All CSS classes relating to the product page.
 */ 
 
 .expanded-image {
@@ -289,6 +346,14 @@ input {
     grid-template-columns: repeat(3, 1fr);
     margin: 10% 0 0 10%;
     text-align: center;
+}
+
+.product-quantity-button {
+    width: 100%;
+    border-radius: 25%;
+    border: transparent;
+    background-color: rgb(230, 230, 230);
+    margin-top: 5%;
 }
 
 .product-label, .product-ingredient, .product-allergy {
@@ -338,14 +403,6 @@ input {
     color:rgb(184,37,8);
 }
 
-.product-pm {
-    width: 100%;
-    border-radius: 25%;
-    border: transparent;
-    background-color: rgb(230, 230, 230);
-    margin-top: 5%;
-}
-
 .product-add {
     width: 100%;
     height: 50px;
@@ -354,14 +411,6 @@ input {
     color: white;
     font-size: 2rem;
     font-family: "Roboto", "consolas", sans-serif;
-    margin-top: 5%;
-}
-
-.product-pm {
-    width: 100%;
-    border-radius: 25%;
-    border: transparent;
-    background-color: rgb(230, 230, 230);
     margin-top: 5%;
 }
 
@@ -388,52 +437,6 @@ input {
 }
 
 /*
-  /$$$$$$  /$$$$$$ /$$   /$$  /$$$$$$  /$$   /$$ /$$        /$$$$$$  /$$$$$$$ 
- /$$__  $$|_  $$_/| $$$ | $$ /$$__  $$| $$  | $$| $$       /$$__  $$| $$__  $$
-| $$  \__/  | $$  | $$$$| $$| $$  \__/| $$  | $$| $$      | $$  \ $$| $$  \ $$
-|  $$$$$$   | $$  | $$ $$ $$| $$ /$$$$| $$  | $$| $$      | $$$$$$$$| $$$$$$$/
- \____  $$  | $$  | $$  $$$$| $$|_  $$| $$  | $$| $$      | $$__  $$| $$__  $$
- /$$  \ $$  | $$  | $$\  $$$| $$  \ $$| $$  | $$| $$      | $$  | $$| $$  \ $$
-|  $$$$$$/ /$$$$$$| $$ \  $$|  $$$$$$/|  $$$$$$/| $$$$$$$$| $$  | $$| $$  | $$
- \______/ |______/|__/  \__/ \______/  \______/ |________/|__/  |__/|__/  |__/
-*/
-
-.underlined {
-    text-decoration: underline;
-}
-
-img {
-    align-items: center;
-}
-
-h3 {
-    font-weight: 700;
-}
-
-p {
-    font-size: small;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-h1 {
-    text-align: center;
-}
-
-a:hover {
-    opacity: .85;
-}
-
-span {
-    font-weight: 300;
-    font-style: italic;
-    color: #797979;
-}
-
-/*
   /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$
  /$$__  $$ /$$__  $$| $$__  $$|__  $$__/
 | $$  \__/| $$  \ $$| $$  \ $$   | $$   
@@ -442,6 +445,8 @@ span {
 | $$    $$| $$  | $$| $$  \ $$   | $$   
 |  $$$$$$/| $$  | $$| $$  | $$   | $$   
  \______/ |__/  |__/|__/  |__/   |__/   
+
+All CSS classes relating to the cart page.
 */
 
 .shopping-cart {
@@ -533,6 +538,8 @@ span {
 | $$  | $$ /$$  \ $$| $$      | $$  \ $$
 |  $$$$$$/|  $$$$$$/| $$$$$$$$| $$  | $$
  \______/  \______/ |________/|__/  |__/
+
+All CSS classes relating to the user pages.
 */
 
 .form {

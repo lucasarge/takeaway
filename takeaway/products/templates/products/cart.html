@@ -17,9 +17,11 @@
 				<h3>Unit</h3>
 				<h3>Cost</h3>
 			</div>
+
 			{% comment %} Displays all items in cart. {% endcomment %}
 			<div class="item-grid">
 				{% for item in items %}
+
 				{% comment %} Item information. {% endcomment %}
 					<div class="cart-image-name">
 						<img class="cart-image" 
@@ -29,6 +31,7 @@
 							{{ item.product.name }}
 						</a></h5>
 					</div>
+
 					{% comment %} Quantity shown w/ + - button. {% endcomment %}
 					<div class="quantity">
 						<button id="minus" class="minus-button" 
@@ -37,19 +40,23 @@
 						<button id="plus" class="plus-button" 
 						value="{{ item.product.id }}">+</button>
 					</div>
+
 					{% comment %} Unit and all of units price. {% endcomment %}
 					<h5>${{ item.product.price }}</h5>
 					<h5>${{ item.price }}</h5>
 				{% endfor %}
 			</div>
+
 			{% comment %} Error message if not logged in. {% endcomment %}
 			{% if not request.user.is_authenticated %}
 			<p>You cannot access cart, register 
 				<a href="/users/register">here</a>.</p>
+
 			{% comment %} If no items suggest menu page. {% endcomment %}
 			{% elif items|length == 0 %}
 			<p>Your cart is empty, go <a href="/products/">shopping</a>?</p>
 			{% else %}
+			
 			{% comment %} Display the sum of all items. {% endcomment %}
 			<button class="total">Total: ${{ cart.total_price }}</button>
 			{% endif %}

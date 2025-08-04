@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
+    {% comment %} Title used for tab name. {% endcomment %}
     Menu
 {% endblock %}
 
@@ -26,6 +27,7 @@
                     </div>
                 </div>
             </div>
+
             <div>
                 {% comment %}If searchquery!=none show search.{% endcomment %}
                 {% if search_query != "" %}
@@ -34,6 +36,7 @@
                     <span>"{{ search_query }}"</span>
                 </h3>
                 {% endif %}
+
                 {% comment %}If can't find item display error.{% endcomment %}
                 {% if products|length == 0 %}
                 <h6>
@@ -41,11 +44,13 @@
                     Click <a href="/products/" class="underlined">here</a> to go
                      to menu. &nbsp;&nbsp;&nbsp;
                 </h6>
+
                 {% comment %} Display all items related {% endcomment %}
                 {% else %}
                 <div class="menu">
-                {% for product in products %}
+    
                 {% comment %} Product card with only variables. {% endcomment %}
+                {% for product in products %}
                     <div class="card">
                         <a href="{% url 'products:page' slug=product.slug %}">
                             <div class="image-container">
@@ -55,7 +60,8 @@
                             </div>
                         </a>
                         <div class="small-product-info">
-                            <a href="{% url 'products:page' slug=product.slug %}">
+                            <a href="{% url 'products:page' 
+                            slug=product.slug %}">
                                 <h3>{{ product.name }}</h3>
                                 <p>${{ product.price }}</p>
                             </a>
@@ -68,6 +74,7 @@
                         </div>
                     </div>
                 {% endfor %}
+
                 </div>
                 {% endif %}
             </div>

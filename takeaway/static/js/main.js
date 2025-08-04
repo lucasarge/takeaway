@@ -8,7 +8,7 @@ function getCookie(name) {
         for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].trim();
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                cookieValue=decodeURIComponent(cookie.substring(name.length+1));
                 break;
             }
         }
@@ -70,18 +70,18 @@ let quantityDisplay = document.getElementById("quantity-display")
 let quantity = 1;
 
 // This adds 1 from quantity in a multiple purchase on the product info page.
-let pplusBtn = document.getElementById("pplus")
-if (pplusBtn) {
-    pplusBtn.addEventListener("click", () => {
+let quantityPlusBtn = document.getElementById("quantity-plus")
+if (quantityPlusBtn) {
+    quantityPlusBtn.addEventListener("click", () => {
         quantity++;
         quantityDisplay.textContent = quantity;
     });
 }
 
 // This removes 1 from quantity in a multiple purchase on the product info page.
-let pminusBtn = document.getElementById("pminus")
-if (pminusBtn) {
-    pminusBtn.addEventListener("click", () => {
+let quantityMinusBtn = document.getElementById("quantity-minus")
+if (quantityMinusBtn) {
+    quantityMinusBtn.addEventListener("click", () => {
         if (quantity > 1) {
             quantity--;
             quantityDisplay.textContent = quantity;

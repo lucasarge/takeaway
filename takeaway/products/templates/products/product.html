@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
+    {% comment %} Title used for tab name. {% endcomment %}
     {{ product.name }}
 {% endblock %}
 
@@ -8,12 +9,18 @@
     <section>
         <div class="container">
             <div></div>
+
+            {% comment %} Splits image and information. {% endcomment %}
             <div class="two-column">
                 <div>
+                    {% comment %} Large image of item. {% endcomment %}
                     <a href="/products">&times;</a>
-                    <img class='expanded-image' src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class='expanded-image' 
+                    src="{{ product.image.url }}" 
+                    alt="{{ product.name }}">
                 </div>
                 <div class="inset">
+                    {% comment %} Name and label of item. {% endcomment %}
                     <div>
                         <h2>{{ product.name }}</h2>
                         <hr>
@@ -23,33 +30,61 @@
                             {% endfor %}
                         </div>
                     </div>
+
+                    {% comment %} Description and ingredients. {% endcomment %}
                     <div>
-                        <h6 class="product-description">{{ product.description }}</h6>
+                        <h6 class="product-description">
+                            {{ product.description }}
+                        </h6>
                         <h6>Ingredients:</h6>
                         <div class="ingredients">
                             {% for ingredient in ingredients %}
-                            <h3 class="product-ingredient">{{ ingredient.name }}</h3>
+                            <h3 class="product-ingredient">
+                                {{ ingredient.name }}
+                            </h3>
                             {% endfor %}
                         </div>
                     </div>
+
+                    {% comment %} Allergy warnings. {% endcomment %}
                     <div>
                         <div class="allergies">
                             {% if not allergies|length == 0%}
                             {% for allergy in allergies %}
-                            <h3 class="product-allergy">Warning contains: {{ allergy }}</p>
+                            <h3 class="product-allergy">
+                                Warning contains: {{ allergy }}
+                            </p>
                             {% endfor %}
                             {% else %}
-                            <h3 class="product-allergy">No allergies found...</p>
+                            <h3 class="product-allergy">
+                                No allergies found...
+                            </p>
                             {% endif %}
                         </div>
+
+                        {% comment %} Price and add buttons. {% endcomment %}
                         <div class="product-info">
-                            <button id="add" class="product-add" value="{{ product.id }}">${{ product.price }}</button>
+                            <button id="add" 
+                            class="product-add" 
+                            value="{{ product.id }}">
+                                ${{ product.price }}
+                            </button>
                             <div class="product-quantity">
-                                <button id="pminus" class="product-pm">-</button>
-                                <h5 class="product-quantity-num" id="quantity-display">
+
+                                <button id="quantity-minus" 
+                                class="product-quantity-button">
+                                    -
+                                </button>
+
+                                <h5 class="product-quantity-num" 
+                                id="quantity-display">
                                     1
                                 </h5>
-                                <button id="pplus" class="product-pm">+</button>
+
+                                <button id="quantity-plus" 
+                                class="product-quantity-button">
+                                    +
+                                </button>
                             </div>
                         </div>
                     </div>
