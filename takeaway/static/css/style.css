@@ -191,7 +191,6 @@ input {
     opacity: 1;
     transition: opacity 1s ease-out;
     z-index: 1000;
-    pointer-events: auto;
 }
 
 #error-notification.hidden {
@@ -561,11 +560,11 @@ All CSS classes relating to the user pages.
 }
 
 .login-div{
-    margin: 40% auto;
+    transform: translateY(35%)
 }
 
 .register-div {
-    margin: 20% auto;
+    transform: translateY(2.5%)
 }
 
 .register {

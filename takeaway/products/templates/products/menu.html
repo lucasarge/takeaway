@@ -60,15 +60,12 @@
                             </div>
                         </a>
                         <div class="small-product-info">
-                            <a href="{% url 'products:page' 
-                            slug=product.slug %}">
+                            <a href="{%url 'products:page' slug=product.slug%}">
                                 <h3>{{ product.name }}</h3>
                                 <p>${{ product.price }}</p>
                             </a>
                             {% comment %} Add button link w/ JS {% endcomment %}
-                            <button id="add" 
-                            class="add-button" 
-                            value="{{ product.id }}">
+                            <button class="add-button" value="{{ product.id }}">
                                 ADD
                             </button>
                         </div>

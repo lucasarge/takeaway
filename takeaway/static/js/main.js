@@ -122,7 +122,7 @@ function removeFromCart(e){
 }
 
 // This collects all plus/add buttons in cart.html and adds 1 item on click.
-let plusBtns = document.querySelectorAll("#add,#plus");
+let plusBtns = document.querySelectorAll(".add-button,#plus");
 plusBtns.forEach(plusBtn=>{
     plusBtn.addEventListener("click", addToCart)
 });
