@@ -32,7 +32,12 @@
             <div class="auth-info">
                 {% if request.user.is_authenticated %}
                 <p>Signed in as:</p>
+                {% comment %} Cuts off username if too long. {% endcomment %}
+                {% if request.user.username|length > 13 %}
+                <p>{{ request.user.username|slice:":10" }}...</p>
+                {% else %}
                 <p>{{ request.user }}</p>
+                {% endif %}
                 {% else %}
                 <p>You need to login.</p>
                 <p>Click 

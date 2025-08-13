@@ -69,6 +69,24 @@ def cart(request):
     # This shares the variables cart and cartitems from the models to the html.
     return render(request,"products/cart.html",{"cart":cart,"items":cartitems})
 
+# Clear cart view, had a lot of errors setting up so has lots of JsonResponse.
+def clear_cart(request):
+    if request.method == "POST":
+        if request.user.is_authenticated:
+            cart, created = Cart.objects.get_or_create(user=request.user,
+                                                       completed=False)
+            if cart:
+                CartItem.objects.filter(cart=cart).delete()
+                return JsonResponse({"success": "Cart cleared"})
+            else:
+                return JsonResponse({"error": "Cart doesn't exist"}, status=404)
+        else:
+            return JsonResponse({"error": 
+        "You need to <a class='underlined' href='/users/register'>login.</a>"}, 
+        status=401)
+    else:
+        return JsonResponse({"error": "Invalid request method"}, status=400)
+
 # add_to_cart is a view that doesn't render but uses logic to add items to cart.
 def add_to_cart(request):
     # Data collected from JS or models

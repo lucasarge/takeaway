@@ -58,7 +58,10 @@
 			{% else %}
 			
 			{% comment %} Display the sum of all items. {% endcomment %}
-			<button class="total">Total: ${{ cart.total_price }}</button>
+			<div class="total-clear">
+				<button class="total">Total: ${{ cart.total_price }}</button>
+				<button class="clear">🗑 Clear</button>
+			</div>
 			{% endif %}
 		</div>
 	</div>

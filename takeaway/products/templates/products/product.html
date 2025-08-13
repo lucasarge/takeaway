@@ -65,10 +65,13 @@
                         {% comment %} Price and add buttons. {% endcomment %}
                         <div class="product-info">
                             <button id="add" 
-                            class="product-add" 
-                            value="{{ product.id }}">
+                            class="add-button" 
+                            value="{{ product.id }}"
+                            data-unit-price="{{ product.price }}">
                                 ${{ product.price }}
                             </button>
+
+                            {% comment %} Add multiple at once. {% endcomment %}
                             <div class="product-quantity">
 
                                 <button id="quantity-minus" 
@@ -76,10 +79,9 @@
                                     -
                                 </button>
 
-                                <h5 class="product-quantity-num" 
-                                id="quantity-display">
-                                    1
-                                </h5>
+                                <input class="product-quantity-num" 
+                                id="quantity-display" value="1" type="num" 
+                                min="1">
 
                                 <button id="quantity-plus" 
                                 class="product-quantity-button">

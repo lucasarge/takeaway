@@ -65,16 +65,100 @@ function updatePage() {
 //     }
 // }
 
+// Clear cart button
+let quantity = 1;
+let unitPrice = 0;
+let clearCartBtn = document.querySelector(".clear")
+if (clearCartBtn) {
+    clearCartBtn.addEventListener("click", clearCart)
+}
+
+// Clear cart function
+function clearCart() {
+    fetch("/products/clear_cart", {
+        method: "POST",
+        headers: {"Content-Type":"application/json", 'X-CSRFToken': csrftoken},
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        updatePage();
+    })
+    .catch(error => console.error("Error clearing cart:", error));
+}
+// Collecting unit price for item.
+let priceDisplay = document.getElementById("add")
+if (priceDisplay) {
+    unitPrice = parseFloat(priceDisplay.dataset.unitPrice)
+}
+
+// Unit price times quantity to figure out total and display with JS.
+function updatePrice() {
+    const totalPrice = (unitPrice * quantity).toFixed(2);
+    priceDisplay.textContent = `$${totalPrice}`;
+}
+
+// Keep the price displayed up to sync.
+if (priceDisplay) {
+    updatePrice();
+}
+
 // This updates the page with JS preventing the page needing to reload.
 let quantityDisplay = document.getElementById("quantity-display")
-let quantity = 1;
+
+// Set initial value of quantityDisplay's value.
+if (quantityDisplay){
+
+    quantityDisplay.value = quantity;
+    let tempValue = quantityDisplay.value;
+
+    // Handling manual input to edit the quantity added at once.
+    quantityDisplay.addEventListener("input", () => {
+        tempValue = quantityDisplay.value;
+    });
+
+    // When user presses enter test the input.
+    quantityDisplay.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            let value = parseInt(tempValue);
+            if (isNaN(value) || value < 1) {
+                value = 1;
+            } else if (value > 20){
+                value = 20;
+            }
+            quantity = value;
+            quantityDisplay.value = quantity;
+            tempValue = quantity.toString();
+            updatePrice();
+        }
+    });
+
+    // When user clicks off of the input use that as a form of enter.
+    quantityDisplay.addEventListener("blur", () => {
+        let value = parseInt(tempValue);
+        if (isNaN(value) || value < 1) {
+            value = 1;
+        } else if (value > 20){
+            value = 20;
+        }
+        quantity = value;
+        quantityDisplay.value = quantity;
+        tempValue = quantity.toString();
+        updatePrice();
+    })
+}
 
 // This adds 1 from quantity in a multiple purchase on the product info page.
 let quantityPlusBtn = document.getElementById("quantity-plus")
 if (quantityPlusBtn) {
     quantityPlusBtn.addEventListener("click", () => {
-        quantity++;
-        quantityDisplay.textContent = quantity;
+        if (quantity >= 20) {
+            quantity = 20
+        } else {
+            quantity++;
+        }
+        quantityDisplay.value = quantity;
+        updatePrice();
     });
 }
 
@@ -84,7 +168,8 @@ if (quantityMinusBtn) {
     quantityMinusBtn.addEventListener("click", () => {
         if (quantity > 1) {
             quantity--;
-            quantityDisplay.textContent = quantity;
+            quantityDisplay.value = quantity;
+            updatePrice();
         }
     });
 }
