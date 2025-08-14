@@ -19,7 +19,7 @@ All CSS classes shared accross the body.
 
 body {
     min-height: 100vh;
-    background-color: rgb(252,246,245);
+    background-color: rgb(251, 244, 243);
     color: rgb(0,0,0);
     font-family: "Roboto", "consolas", sans-serif;
     font-size: 3rem;
@@ -45,7 +45,7 @@ main {
 All CSS classes relating to text, images or other miscellaneous.
 */
 
-.underlined {
+.ul {
     text-decoration: underline;
 }
 
