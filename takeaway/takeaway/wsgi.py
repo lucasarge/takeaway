@@ -1,3 +1,5 @@
+"""This is a wsgi file that is required in the Django project for config."""
+
 """
 WSGI config for takeaway project.
 

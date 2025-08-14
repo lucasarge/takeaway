@@ -1,3 +1,4 @@
+"""This is a context processor file that is used to create global variables."""
 from .models import Cart
 
 # Marking cart_item_quantity a global variable for layout.html.

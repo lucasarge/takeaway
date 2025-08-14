@@ -1,3 +1,5 @@
+"""This is a urls file that defines the different urls and connects the view."""
+
 """
 URL configuration for takeaway project.
 

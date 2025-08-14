@@ -1,3 +1,5 @@
+"""This is a views file that holds functions or renders activated via url."""
+
 from django.shortcuts import render
 from .models import Product, Cart, CartItem, Label
 from django.http import JsonResponse

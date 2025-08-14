@@ -1,3 +1,5 @@
+"""This is a views file that holds functions or renders activated via url."""
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login

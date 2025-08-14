@@ -1,3 +1,5 @@
+"""This is a urls file that defines the different urls and connects the view."""
+
 from django.urls import path
 from django.contrib.auth.views import LogoutView
 from . import views

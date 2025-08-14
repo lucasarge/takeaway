@@ -1,3 +1,5 @@
+"""This is a asgi file that is required in the Django project for config."""
+
 """
 ASGI config for takeaway project.
 

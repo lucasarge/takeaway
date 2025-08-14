@@ -1,3 +1,5 @@
+"""This is a models file that are used to create the database and connect it."""
+
 from django.db import models
 from django.contrib.auth.models import User
 import uuid

@@ -1,3 +1,4 @@
+"""This is a admin file that are used to display tables on admin page."""
 from django.contrib import admin
 from .models import Label, LabelProduct
 from .models import Product, Cart, CartItem

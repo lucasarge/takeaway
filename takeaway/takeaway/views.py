@@ -1,3 +1,5 @@
+"""This is a views file that holds functions or renders activated via url."""
+
 # Django's function for rendering pages.
 from django.shortcuts import render
 

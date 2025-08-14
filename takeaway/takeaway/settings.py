@@ -1,3 +1,5 @@
+"""This is a settings file that is used for almost all the configuration."""
+
 """
 Django settings for takeaway project.
 
