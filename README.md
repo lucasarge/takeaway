@@ -2,7 +2,13 @@ Instructions to start program:
 
 In a fresh terminal with the directory starting at “../takeaway/” paste in the prompt:
 
-Set-ExecutionPolicy Unrestricted -Scope Process ; .venv/Scripts/Activate ; cd takeaway ; py manage.py runserver
+“Set-ExecutionPolicy Unrestricted -Scope Process ; .venv/Scripts/Activate ; cd takeaway”
+
+“py -m pip install Django”
+
+“pip install Pillow”
+
+“py manage.py runserver”
 
 Then access the website at the localhost with the port 8000, the link is:
 
