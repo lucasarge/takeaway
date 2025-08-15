@@ -84,7 +84,7 @@ def clear_cart(request):
                 return JsonResponse({"error": "Cart doesn't exist"}, status=404)
         else:
             return JsonResponse({"error": 
-        "You need to <a class='underlined' href='/users/register'>login.</a>"}, 
+        "You need to <a class='ul' href='/users/register'>login.</a>"}, 
         status=401)
     else:
         return JsonResponse({"error": "Invalid request method"}, status=400)
@@ -112,7 +112,7 @@ def add_to_cart(request):
     
     # If user is not authenticated it prints error message through layout.html.
     return JsonResponse({"error": 
-    "You need to <a class='underlined' href='/users/register'>login.</a>"}, 
+    "You need to <a class='ul' href='/users/register'>login.</a>"}, 
     status=401)
 
 # remove_from_cart view won't render but uses logic to remove items from cart.
